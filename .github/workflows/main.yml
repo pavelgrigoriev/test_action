@@ -22,11 +22,11 @@ jobs:
     # env:
     #   targetName: OptiSiftVision
     #   QtApplicationName: App
-    # steps:
-    #   - uses: actions/setup-python@v3
-    #     with:
-    #       python-version: "3.10"
-    #       # cache: "poetry"
+    steps:
+      # - uses: actions/setup-python@v3
+      #   with:
+      #     python-version: "3.10"
+      #     # cache: "poetry"
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
