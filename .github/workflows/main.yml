@@ -40,7 +40,7 @@ jobs:
           # setup-python: 'false'
           # set-env: 'true'
           # tools-only: 'false'
-          modules: "qtcharts qtnetworkauth"
+          # modules: "qtcharts qtnetworkauth"
         # run: sudo apt install qt6-base-dev
       - name: Check install QT
         run: find ${{env.QT_DIR}}
