@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Install Qt
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
         uses: jurplel/install-qt-action@v3
         with:
           version: '6.2.2'
