@@ -1,10 +1,10 @@
 name: CMake on a single platform
 run-name: ${{ github.actor }} is testing out GitHub Actions
-# on:
-#   push:
-#     branches: [ "main"]
-#   pull_request:
-#     branches: [ "main"]
+on:
+  push:
+    branches: [ "main"]
+  pull_request:
+    branches: [ "main"]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
