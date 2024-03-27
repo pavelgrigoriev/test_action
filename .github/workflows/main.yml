@@ -2,9 +2,9 @@ name: CMake on a single platform
 run-name: ${{ github.actor }} is testing out GitHub Actions
 on:
   push:
-    branches: [ "main"]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main"]
+    branches: [ "main" ]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -30,7 +30,9 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install clang
       - name: Configure CMake
+        working-directory: ${{ github.workspace }}/build
         run: |
-          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_PREFIX_PATH=${{env.Qt6_Dir}}
+          cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_PREFIX_PATH=${{env.Qt6_Dir}}
       - name: Build
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        working-directory: ${{ github.workspace }}/build
+        run: cmake --build . --config ${{env.BUILD_TYPE}}
