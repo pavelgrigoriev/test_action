@@ -13,4 +13,5 @@ jobs:
       - name: Update and install
         run: |
           docker pull pavelgr/optifostvision-development
+          docker images
    
