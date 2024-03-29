@@ -15,30 +15,7 @@ jobs:
     name: Install dependencies
     runs-on: ubuntu-22.04
     steps:
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '6.2.2'
-          host: 'linux'
-          target: 'desktop'
-      - name: Check install QT
-        run: find ${{env.QT_DIR}}
-      - name: Check install Qt6
-        run: find ${{env.Qt6_DIR}}
       - name: Update and install
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install clang
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
-      
-      - name: Build project
-        run: cmake --build build --config ${{ env.BUILD_TYPE }}
-       # - name: Configure CMake
-      #   run: |
-      #     cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_PREFIX_PATH=${{env.Qt6_Dir}}
-      # - name: Build
-      #   run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+          docker pull pavelgr/optifostvision-development
+   
